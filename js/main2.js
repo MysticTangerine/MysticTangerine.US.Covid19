@@ -7,9 +7,9 @@ mapboxgl.accessToken =
             center: [-100, 40] // starting center
         });
 
-        const grades = [4, 5, 6],
-            colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)'],
-            radii = [5, 15, 20];
+        const cases = [100, 1000, 2000],
+            colors = ['rgb(252, 126, 1261)', 'rgb(250, 72, 72)', 'rgb(148, 0, 0)'],
+            radii = [2, 6, 10];
 
         //load data to the map as new layers.
         //map.on('load', function loadingData() {
@@ -34,24 +34,24 @@ mapboxgl.accessToken =
                             'stops': [
                                 [{
                                     zoom: 4,
-                                    value: grades[0]
+                                    value: cases[0]
                                 }, radii[0]],
                                 [{
                                     zoom: 4,
-                                    value: grades[1]
+                                    value: cases[1]
                                 }, radii[1]],
                                 [{
                                     zoom: 4,
-                                    value: grades[2]
+                                    value: cases[2]
                                 }, radii[2]]
                             ]
                         },
                         'circle-color': {
                             'property': 'cases',
                             'stops': [
-                                [grades[0], colors[0]],
-                                [grades[1], colors[1]],
-                                [grades[2], colors[2]]
+                                [cases[0], colors[0]],
+                                [cases[1], colors[1]],
+                                [cases[2], colors[2]]
                             ]
                         },
                         'circle-stroke-color': 'white',
@@ -81,7 +81,7 @@ mapboxgl.accessToken =
             vbreak;
         //iterate through grades and create a scaled circle and label for each
         for (var i = 0; i < grades.length; i++) {
-            vbreak = grades[i];
+            vbreak = cases[i];
             // you need to manually adjust the radius of each dot on the legend 
             // in order to make sure the legend can be properly referred to the dot on the map.
             dot_radii = 2 * radii[i];
@@ -94,6 +94,6 @@ mapboxgl.accessToken =
         }
         // add the data source
         const source =
-            '<p style="text-align: right; font-size:10pt">Source: <a href="https://github.com/nytimes/covid-19-data/blob/43d32dde2f87bd4dafbb7d23f5d9e878124018b8/live/us-counties.csv">USGS</a></p>';
+            '<p style="text-align: right; font-size:10pt">Source: <a href="https://github.com/nytimes/covid-19-data/blob/43d32dde2f87bd4dafbb7d23f5d9e878124018b8/live/us-counties.csv">nytimes</a></p>';
         // combine all the html codes.
         legend.innerHTML = labels.join('') + source;
