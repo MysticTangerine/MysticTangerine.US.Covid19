@@ -79,8 +79,8 @@ mapboxgl.accessToken =
         //set up legend grades and labels
         var labels = ['<strong>Cases</strong>'],
             vbreak;
-        //iterate through grades and create a scaled circle and label for each
-        for (var i = 0; i < grades.length; i++) {
+        //iterate through cases and create a scaled circle and label for each
+        for (var i = 0; i < cases.length; i++) {
             vbreak = cases[i];
             // you need to manually adjust the radius of each dot on the legend 
             // in order to make sure the legend can be properly referred to the dot on the map.
